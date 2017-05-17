@@ -1,3 +1,4 @@
+
 class TrieNode:
     def __init__(self, node_char="$"):
         self.trie_node_char = node_char
@@ -75,12 +76,11 @@ class Trie:
 
 
 t = Trie()
-t.add_keyword('app')
-t.add_keyword('apple')
-t.add_keyword('apart')
-t.add_keyword('bag')
-t.add_keyword('bang')
-t.add_keyword('bangle')
-t.get_completions('ap')
+#open the local dictionary file and build the trie node
+local_dict = open('/usr/share/dict/words')
+for i in local_dict:
+    t.add_keyword(i)
+
+t.get_completions('app')
 
 
