@@ -62,13 +62,12 @@ class Trie:
         while counter < len(prefix):
             result = head.is_char_in_trienode(prefix[counter])
             if result is not None:
-                head = result
                 counter = counter + 1
-
+                head = result
             else:
                 print("No such prefix")
                 break
-            break
+        isEndOfPrefix = True if counter == len(prefix) else False
 
         if isEndOfPrefix:
            TrieNode.print_prefix(head, prefix)
@@ -82,6 +81,6 @@ t.add_keyword('apart')
 t.add_keyword('bag')
 t.add_keyword('bang')
 t.add_keyword('bangle')
-t.get_completions('bag')
+t.get_completions('ap')
 
 
