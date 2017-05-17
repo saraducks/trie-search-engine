@@ -1,3 +1,4 @@
+import time
 
 class TrieNode:
     def __init__(self, node_char="$"):
@@ -68,6 +69,7 @@ class Trie:
             else:
                 print("No such prefix")
                 break
+        
         isEndOfPrefix = True if counter == len(prefix) else False
 
         if isEndOfPrefix:
@@ -76,11 +78,27 @@ class Trie:
 
 
 t = Trie()
+
+# measure the time taken for adding dictionary words to trienode
+start  = time.time()
+
 #open the local dictionary file and build the trie node
 local_dict = open('/usr/share/dict/words')
 for i in local_dict:
     t.add_keyword(i)
 
-t.get_completions('app')
+finish_import = time.time()
 
+# prints total time taken for opening dictionary file and creating tirenode
+print( "time for dictionary import %d seconds"%(finish_import - start))
+
+while(1):
+    # prompts for user input
+    print("enter query:")
+    query = raw_input()
+    # measures the total time taken to search for prefix and return the result
+    start_query = time.time()
+    t.get_completions(query)
+    end_query = time.time()
+    print("time for search %d seconds" % (end_query - start_query))
 
