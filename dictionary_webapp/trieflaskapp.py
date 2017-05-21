@@ -14,10 +14,7 @@ def hello():
 @app.route('/search')
 def search():
     query = request.args.get('q')
-    print ("query is in flask app " + query)
-
     result_list = []
-
     # validate query
     if query is not None and query is not "":
         # do the query
@@ -26,7 +23,6 @@ def search():
         result_list = trie_index.get_completions(query)
 
     result = {"query": query, 'results':result_list}
-    print(result)
     return jsonify(result)
 
 if __name__ == '__main__':
