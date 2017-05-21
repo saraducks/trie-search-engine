@@ -1,0 +1,10 @@
+body {font-family : 'Abril Fatface', background-color: #B6AFA9;}
+input
+{
+width:50%;
+left : 30%;
+right : 30%;
+top : 50%;
+position : absolute;
+margin: auto;
+}

@@ -1,5 +1,3 @@
-import time
-
 class TrieNode:
     def __init__(self, node_char="$"):
         self.trie_node_char = node_char
@@ -17,6 +15,17 @@ class TrieNode:
         for iter in self.childNodeList:
             iter.print_trie(temp+self.trie_node_char)
 
+    # return the list of completion words
+    def display_completions_list(self, prefix, completions_list = []):
+        # if the end of the word is true, then append to the list
+        if self.endOfWord == True:
+            completions_list.append(prefix)
+        #recursively call the display_completions_list by exploring all child node of prefix.
+        for iter in self.childNodeList:
+            iter.display_completions_list(prefix+iter.trie_node_char)
+        #returns the list of completions as list
+        return completions_list
+
     def print_prefix(self, prefix, temp =""):
         #prints the word only if endOfWord is set to True
         if self.endOfWord == True:
@@ -30,6 +39,10 @@ class Trie:
     # initialize the root node with '$'
     def __init__(self):
         self.root = TrieNode()
+        # open the local dictionary file and build the trie node
+        local_dict = open('/usr/share/dict/words')
+        for i in local_dict:
+            self.add_keyword(i)
 
     def add_keyword(self, input_string):
         current_node = self.root
@@ -73,32 +86,10 @@ class Trie:
         isEndOfPrefix = True if counter == len(prefix) else False
 
         if isEndOfPrefix:
-           TrieNode.print_prefix(head, prefix)
+           res = TrieNode.display_completions_list(head, prefix)
+           #TrieNode.print_prefix(head, prefix)
+           # return the completions list
+           return res
 
 
-
-t = Trie()
-
-# measure the time taken for adding dictionary words to trienode
-start  = time.time()
-
-#open the local dictionary file and build the trie node
-local_dict = open('/usr/share/dict/words')
-for i in local_dict:
-    t.add_keyword(i)
-
-finish_import = time.time()
-
-# prints total time taken for opening dictionary file and creating tirenode
-print( "time for dictionary import %d seconds"%(finish_import - start))
-
-while(1):
-    # prompts for user input
-    print("enter query:")
-    query = raw_input()
-    # measures the total time taken to search for prefix and return the result
-    start_query = time.time()
-    t.get_completions(query)
-    end_query = time.time()
-    print("time for search %d seconds" % (end_query - start_query))
 

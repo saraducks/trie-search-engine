@@ -1,0 +1,26 @@
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='style.css')}}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<title>Trie-spell-check</title>
+<body>
+<input id="user-input" type="text" size='20' name="user-input">
+{% if test %}
+  {% for i in test %}
+      <li>i</li>
+  {% endfor %}
+{% endif %}
+<script type="text/javascript">
+    $(document).ready(function(){
+       $("input").keypress(function(){
+          var txt = $("input").val();
+          console.log("query is "+ txt);
+          $.get( "/search?q="+txt, function( data ) {
+              console.log("response is:",data);
+          });
+       });
+    });
+</script>
+</body>
+</html>

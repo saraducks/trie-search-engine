@@ -1,3 +1,9 @@
+#!/usr/bin/env python
+import os
+import sys
+sys.path.insert(0,os.getcwd()+"/trie")
+print(os.getcwd()+"/trie")
+import trie
 #!/usr/bin/env python3.4
 
 import trie
@@ -27,3 +33,4 @@ while(1):
     t.get_completions(query)
     end_query = time.time()
     print("time for search %d seconds" % (end_query - start_query))
+
