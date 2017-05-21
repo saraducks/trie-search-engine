@@ -1,12 +1,11 @@
 #!/usr/bin/env python3.4
 
 from flask import Flask, render_template, jsonify, request
-from trie import trie
+
+import trie
 
 # application context
 app = Flask(__name__)
-
-t = trie.Trie(bootstrap_dict=True)
 
 @app.route("/")
 def hello():
@@ -15,19 +14,20 @@ def hello():
 @app.route('/search')
 def search():
     query = request.args.get('q')
+    print ("query is in flask app " + query)
+
+    result_list = []
 
     # validate query
-    if query is not "" or query is not None:
+    if query is not None and query is not "":
         # do the query
-        #result will be the list of completions_word
-        completions_result = t.get_completions(query)
+        #result will be the list of word completions
+        trie_index = trie.Trie()
+        result_list = trie_index.get_completions(query)
 
-    result = {"query": query, 'results':completions_result}
+    result = {"query": query, 'results':result_list}
+    print(result)
     return jsonify(result)
 
-    #t = trie_cli.func(code)
-    #return render_template('frontpage.html', test = t)
-
 if __name__ == '__main__':
-    app.debug=True
-    app.run(host='0.0.0.0', port=5002)
+    app.run(host='0.0.0.0', port=5002, debug=True)

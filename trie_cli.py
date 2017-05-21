@@ -1,7 +1,8 @@
 #!/usr/bin/env python3.4
 
-from trie import trie
 import time
+
+from dictionary_webapp import trie
 
 
 def func(user_input):
@@ -20,7 +21,8 @@ def func(user_input):
         # measures the total time taken to search for prefix and return the result
     query = user_input
     start_query = time.time()
-    t.get_completions(query)
+    res = t.get_completions(query)
+    print(res)
     end_query = time.time()
     print("time for search %d seconds" % (end_query - start_query))
 

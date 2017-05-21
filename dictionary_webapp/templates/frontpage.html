@@ -16,8 +16,8 @@
        $("input").keypress(function(){
           var txt = $("input").val();
           console.log("query is "+ txt);
-          $.get( "/search?q="+txt, function( data ) {
-              console.log("response is:",data);
+          $.get( "/search?q="+txt, function(data) {
+              console.log(data);
           });
        });
     });

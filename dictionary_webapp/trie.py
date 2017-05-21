@@ -40,9 +40,9 @@ class Trie:
     def __init__(self):
         self.root = TrieNode()
         # open the local dictionary file and build the trie node
-        local_dict = open('/usr/share/dict/words')
-        for i in local_dict:
-            self.add_keyword(i)
+        with open('/usr/share/dict/words') as local_dict:
+            for i in local_dict:
+                self.add_keyword(i)
 
     def add_keyword(self, input_string):
         current_node = self.root

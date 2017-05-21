@@ -30,7 +30,8 @@ while(1):
     query = input()
     # measures the total time taken to search for prefix and return the result
     start_query = time.time()
-    t.get_completions(query)
+    results = t.get_completions(query)
+    print("|".join(results))
     end_query = time.time()
     print("time for search %d seconds" % (end_query - start_query))
 
