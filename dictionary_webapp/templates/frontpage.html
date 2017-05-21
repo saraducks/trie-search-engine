@@ -6,18 +6,20 @@
 <title>Trie-spell-check</title>
 <body>
 <input id="user-input" type="text" size='20' name="user-input">
-{% if test %}
-  {% for i in test %}
-      <li>i</li>
-  {% endfor %}
-{% endif %}
+<ul id="result-list">
+
+</ul>>
 <script type="text/javascript">
     $(document).ready(function(){
        $("input").keypress(function(){
           var txt = $("input").val();
           console.log("query is "+ txt);
           $.get( "/search?q="+txt, function(data) {
-              console.log(data);
+            console.log(data);
+              for (var i = 0; i < data['results'].length; i++) {
+                console.log(i, data['results'][i]);
+                $('ul').append("<li>"+ data['results'][i]+"</li>")
+              }
           });
        });
     });
