@@ -5,10 +5,8 @@
 </head>
 <title>Trie-spell-check</title>
 <body>
-<input id="user-input" type="text" size='20' name="user-input">
-<ul id="result-list">
-
-</ul>
+<input id="user-input" type="text" size='20'>
+<ul id="result-list"></ul>
 <script type="text/javascript">
     $(document).ready(function(){
        $("input").keyup(function(){
@@ -18,7 +16,7 @@
             console.log(data);
               for (var i = 0; i < data['results'].length; i++) {
                 console.log(i, data['results'][i]);
-                $('ul').append('<li><a href="https://en.wikipedia.org/wiki/"'+data['results'][i]+'>'+ data['results'][i] +'</a></li>')
+                $('ul').append('<li><a href=https://en.wikipedia.org/wiki/'+data['results'][i]+'>'+ data['results'][i] +'</a></li>')
               }
           });
        });
