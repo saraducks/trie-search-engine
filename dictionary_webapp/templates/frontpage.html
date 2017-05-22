@@ -8,17 +8,17 @@
 <input id="user-input" type="text" size='20' name="user-input">
 <ul id="result-list">
 
-</ul>>
+</ul>
 <script type="text/javascript">
     $(document).ready(function(){
-       $("input").keypress(function(){
-          var txt = $("input").val();
+       $("input").keyup(function(){
+          var txt = this.value;
           console.log("query is "+ txt);
           $.get( "/search?q="+txt, function(data) {
             console.log(data);
               for (var i = 0; i < data['results'].length; i++) {
                 console.log(i, data['results'][i]);
-                $('ul').append("<li>"+ data['results'][i]+"</li>")
+                $('ul').append('<li><a href="https://en.wikipedia.org/wiki/"'+data['results'][i]+'>'+ data['results'][i] +'</a></li>')
               }
           });
        });
