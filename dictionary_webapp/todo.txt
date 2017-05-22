@@ -1,0 +1,7 @@
+ 1. display the proper results to the frontpage.html
+ 2. Raise the error at trie.py for "If the search index is not found"
+ 3. Fix the file import (name of the file: 'trie.py') issue in trieflaskapp.py
+ 4. Write the unit test cases
+ 5. Connect the dictionary to trie app and display the word meanings
+ 6. Host this trie auto-completion in aws
+    * get the domain name
