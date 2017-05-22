@@ -16,13 +16,17 @@ class TrieNode:
             iter.print_trie(temp+self.trie_node_char)
 
     # return the list of completion words
-    def display_completions_list(self, prefix, completions_list = []):
+    def display_completions_list(head, prefix):
+        #initialize list
+        completions_list = []
         # if the end of the word is true, then append to the list
-        if self.endOfWord == True:
+        if head.endOfWord == True:
             completions_list.append(prefix)
+            print("append")
+            print(completions_list)
         #recursively call the display_completions_list by exploring all child node of prefix.
-        for iter in self.childNodeList:
-            iter.display_completions_list(prefix+iter.trie_node_char)
+        for iter in head.childNodeList:
+            completions_list += iter.display_completions_list(prefix+iter.trie_node_char)
         #returns the list of completions as list
         return completions_list
 
@@ -73,23 +77,30 @@ class Trie:
         head = self.root
         isEndOfPrefix = False
         counter = 0
-        #Itereate through the character in prefix with childNodeList
+        #check if prefix is None or ""
+        if prefix == None or prefix == "":
+            return ""
+
+        #Iterate through the character in prefix with childNodeList
         while counter < len(prefix):
             result = head.is_char_in_trienode(prefix[counter])
             if result is not None:
                 counter = counter + 1
                 head = result
             else:
-                print("No such prefix")
-                break
-        
+                raise ValueError('No such prefix')
+
         isEndOfPrefix = True if counter == len(prefix) else False
 
         if isEndOfPrefix:
-           res = TrieNode.display_completions_list(head, prefix)
-           #TrieNode.print_prefix(head, prefix)
-           # return the completions list
-           return res
+            # initialize the word_index_result list
+            word_index_result = TrieNode.display_completions_list(head, prefix)
+            #TrieNode.print_prefix(head, prefix)
+            # return the completions list
+            return word_index_result
+        else:
+            raise ValueError("No prefix match word found.")
+
 
 
 
