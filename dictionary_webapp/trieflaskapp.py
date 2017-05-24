@@ -18,7 +18,6 @@ def hello():
 def search():
     query = request.args.get('q')
     start = time.time()
-    print("This is my query "+query)
     #initialize the result
     result_list = []
     # validate query
@@ -26,9 +25,6 @@ def search():
         # do the query
         #result will be the list of word completions
         result_list = trie_index.get_completions(query)
-        # print command to debug
-        print("********************** ")
-        print(result_list[:10])
 
     end = time.time()
 

@@ -9,16 +9,26 @@ position : absolute;
 margin: auto;
 }
 
-li { /* styles all li elements*/
- list-style-type: none;
-}
-
 ul{
-     left : 25%;
+     left : 28.5%;
      right : 30%;
      top : 34%;
      position : absolute;
      margin: auto;
      text-align :start;
 
+}
+li { /* styles all li elements*/
+ list-style-type: none;
+}
+
+.progress
+{
+ position: absolute;
+ left: 0px;
+ top: 98%;
+ width: 50%;
+ height: 2%;
+ z-index: 9999;
+ background-color: #F2F2F2;
 }

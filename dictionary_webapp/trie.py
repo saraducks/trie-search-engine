@@ -22,8 +22,6 @@ class TrieNode:
         # if the end of the word is true, then append to the list
         if head.endOfWord == True:
             completions_list.append(prefix[:-1])
-            print("append")
-            print(completions_list)
         #recursively call the display_completions_list by exploring all child node of prefix.
         for iter in head.childNodeList:
             completions_list += iter.display_completions_list(prefix+iter.trie_node_char)

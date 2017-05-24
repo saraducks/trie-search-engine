@@ -1,15 +1,23 @@
-<html>
+<html xmlns="http://www.w3.org/1999/html">
 <head>
-    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='style.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='style.css') }}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <title>Trie-spell-check</title>
 <body>
-<input id="user-input" type="text" size='20'>
-<ul id="result-list"></ul>
+ <div>
+   <input id="user-input" type="text" size='20' placeholder="Enter characters here">
+   <ul class="result-list"></ul>
+ </div>
+ <div class="progress">
+ </div>
 <script type="text/javascript">
     $(document).ready(function(){
        $("input").keyup(function(){
+          $("div.progress").text('')
+          if($('ul').length > 0){
+             $('ul li').remove();
+           }
           var txt = this.value;
           console.log("query is "+ txt);
           $.get( "/search?q="+txt, function(data) {
@@ -18,7 +26,10 @@
                 console.log(i, data['results'][i]);
                 $('ul').append('<li><a href=https://en.wikipedia.org/wiki/'+data['results'][i]+'>'+ data['results'][i] +'</a></li>')
               }
+             console.log(data['server_time']);
+             $("div.progress").text(data['server_time'])
           });
+
        });
     });
 </script>
