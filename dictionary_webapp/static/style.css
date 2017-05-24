@@ -1,10 +1,24 @@
-body {font-family : 'Abril Fatface', background-color: #B6AFA9;}
+body {font-family : 'Abril Fatface', background-color: #ebf1f6;}
 input
 {
-width:50%;
+width:40%;
 left : 30%;
 right : 30%;
-top : 50%;
+top : 30%;
 position : absolute;
 margin: auto;
+}
+
+li { /* styles all li elements*/
+ list-style-type: none;
+}
+
+ul{
+     left : 25%;
+     right : 30%;
+     top : 34%;
+     position : absolute;
+     margin: auto;
+     text-align :start;
+
 }
