@@ -12,12 +12,21 @@ class TestTrieWordCompletion(unittest.TestCase):
     #1. pass the random word not in dictionary and see if condition pass
     def test_trie_not_in_dictionary(self):
         result_list = test_trie.get_completions('vic')
-        self.assertTrue(result_list[0][:3] == 'vic')
+        #check each and every word in the result_list
+        for iter in range(0,len(result_list)):
+            self.assertTrue(result_list[iter][:3] == 'vic')
 
     #2. Pass the null, it should return NONE
     def test_trie_for_none(self):
         result_list = test_trie.get_completions('')
-        self.assertIsNotNone(result_list, "enter the characters")
+        self.assertIsNotNone(result_list, "")
+
+    #3. matches the exact word
+    def test_get_exact_match(self):
+        result_list = test_trie.get_completions("victory")
+        for iter in range(0, len(result_list)):
+            self.assertTrue(result_list[iter][:7] == "victory")
+
 
 if __name__ == '__main__':
     unittest.main()
