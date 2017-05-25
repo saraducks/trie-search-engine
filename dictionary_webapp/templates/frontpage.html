@@ -27,7 +27,7 @@
                 $('ul').append('<li><a href=https://en.wikipedia.org/wiki/'+data['results'][i]+'>'+ data['results'][i] +'</a></li>')
               }
              console.log(data['server_time']);
-             $("div.progress").text(data['server_time'])
+             $("div.progress").text(data['total-result-length']+' results in '+data['server_time'])
           });
 
        });

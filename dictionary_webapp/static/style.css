@@ -4,22 +4,30 @@ input
 width:40%;
 left : 30%;
 right : 30%;
-top : 30%;
+top : 45%;
 position : absolute;
 margin: auto;
+height:3%;
+font-size:90%;
 }
 
 ul{
-     left : 28.5%;
+     left : 27.3%;
      right : 30%;
-     top : 34%;
+     top : 49%;
      position : absolute;
      margin: auto;
      text-align :start;
 
 }
 li { /* styles all li elements*/
+ font-family:roboto;
  list-style-type: none;
+ margin:0.8;
+}
+
+li:hover{
+  background:#EBEBEB;
 }
 
 .progress
@@ -32,4 +40,12 @@ li { /* styles all li elements*/
  z-index: 9999;
  background-color: #F2F2F2;
  color : #827b82
+}
+
+a{
+ text-decoration : none;
+ color : #207E9E;
+}
+a:hover{
+ font-weight : bold;
 }

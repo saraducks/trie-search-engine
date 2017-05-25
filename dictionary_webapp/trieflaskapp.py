@@ -17,7 +17,9 @@ def hello():
 @app.route('/search')
 def search():
     query = request.args.get('q')
-    start = time.time()
+    start = time.time();
+    print(start)
+
     #initialize the result
     result_list = []
     # validate query
@@ -26,9 +28,10 @@ def search():
         #result will be the list of word completions
         result_list = trie_index.get_completions(query)
 
-    end = time.time()
+    end = time.time();
+    print(end)
 
-    result = {'results':result_list[:10], 'server_time':str(int(end-start))+"seconds"}
+    result = {'results':result_list[:10], 'total-result-length':len(result_list),'server_time':str(end-start)[:8]+" seconds"}
     return jsonify(result)
 
 if __name__ == '__main__':
