@@ -26,7 +26,9 @@
                 console.log(i, data['results'][i]);
                 $('ul').append('<li><a href=https://en.wikipedia.org/wiki/'+data['results'][i]+'>'+ data['results'][i] +'</a></li>')
               }
-             console.log(data['server_time']);
+             $('li').click(function(){
+                alert($(this).text());
+             });
              $("div.progress").text(data['total-result-length']+' results in '+data['server_time'])
           });
 
