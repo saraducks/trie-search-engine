@@ -6,14 +6,14 @@ RUN apt-get update -y
 
 RUN apt-get install -y git  python-pip python-dev build-essential
 
-RUN pip install -r requirements.txt
-
-COPY . /dictionary_webapp
+COPY . /trie-search-engine
 
 EXPOSE 8500
 
 ENTRYPOINT ["python"]
 
-WORKDIR ["/dictionary_webapp"]
+WORKDIR ["/trie-search-engine"]
+
+RUN pip install -r requirements.txt
 
 CMD["trieflaskapp.py", "-p:8500"]
