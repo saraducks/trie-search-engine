@@ -8,6 +8,8 @@ RUN apt-get install -y git  python-pip python-dev build-essential
 
 RUN pip install -r requirements.txt
 
+COPY . /dictionary_webapp
+
 EXPOSE 8500
 
 ENTRYPOINT "python"
