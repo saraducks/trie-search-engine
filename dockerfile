@@ -14,6 +14,6 @@ ENTRYPOINT ["python"]
 
 WORKDIR ["/trie-search-engine"]
 
-RUN pip install -r ~/Requirements.txt
+RUN pip install ./Requirements.txt
 
 CMD["/dictionary_webapp/trieflaskapp.py", "-p:8500"]
