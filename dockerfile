@@ -10,7 +10,7 @@ COPY . /trie-search-engine
 
 WORKDIR ["/trie-search-engine"]
 
-RUN pip install -r requirements.txt
+RUN pip install flask
 
 ENTRYPOINT ["python"]
 
