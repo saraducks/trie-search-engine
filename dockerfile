@@ -1,18 +1,18 @@
-FROM python:3.5
+FROM python:2.7
 
 MAINTAINER saranya vijay
 
-RUN apt-get update -y 
+RUN yum update -y 
 
-RUN apt-get install -y git  python-pip python-dev build-essential
+RUN yum install -y git  python-pip python-dev build-essential
 
-RUN pip install -r requirements.txt
+RUN pip install -r https://github.com/saraducks/trie-search-engine/blob/master/requirements.txt
 
 COPY . /dictionary_webapp
 
 EXPOSE 8500
 
-ENTRYPOINT "python"
+ENTRYPOINT ["python"]
 
 WORKDIR ["/dictionary_webapp"]
 
