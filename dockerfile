@@ -6,7 +6,7 @@ RUN apt-get update -y
 
 RUN apt-get install -y git  python-pip python-dev build-essential
 
-RUN pip install -r https://github.com/saraducks/trie-search-engine/blob/master/requirements.txt
+RUN pip install -r requirements.txt
 
 COPY . /dictionary_webapp
 
