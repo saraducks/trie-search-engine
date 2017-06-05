@@ -14,4 +14,4 @@ RUN pip install flask
 
 ENTRYPOINT ["python"]
 
-CMD["trieflaskapp.py", "-p:8500"]
+CMD["trie-search-engine/dictionary_webapp/trieflaskapp.py", "-p:8500"]
