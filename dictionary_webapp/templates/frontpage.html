@@ -24,10 +24,16 @@
             console.log(data);
               for (var i = 0; i < data['results'].length; i++) {
                 console.log(i, data['results'][i]);
-                $('ul').append('<li><a href=https://en.wikipedia.org/wiki/'+data['results'][i]+'>'+ data['results'][i] +'</a></li>')
+                $('ul').append('<li><a>'+data['results'][i]+'</a></li>')
               }
              $('li').click(function(){
-                alert($(this).text());
+                var li_value = $(this).text();
+                $.ajax({
+                  url : "https://wordsapiv1.p.mashape.com/words/"+li_value,
+                  context: document.body
+                }).done(function(data){
+                     console.log(data["results"]);
+                  });
              });
              $("div.progress").text(data['total-result-length']+' results in '+data['server_time'])
           });

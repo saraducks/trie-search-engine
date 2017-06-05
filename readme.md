@@ -6,3 +6,6 @@ source sara-dev/bin/activate
 
 * now you should be inside sara-dev python virtualenv. Now pip install requirements
 pip install -r requirements.txt
+
+* Trigger the build using Jenkins
+

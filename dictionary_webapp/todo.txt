@@ -1,7 +1,31 @@
+May 22, 2017
+ UI
+ 1. Put the search box at the top. [may 23,2017]{Fixed}
+ 2. Display search results in a list without bullet points. Align them below the input box. Remove the dollar symbol
+ [May 23,2017]{Fixed}
+ 3. Display "x results in y search time", just like google.[]may 24,2017]{fixed}
+ 4. Make the search result clickable by putting <a> tag. Link is wikipedia.org/<word>[may 22,2017]{/dictionary_webapp/templates/frontpage.html, line  21: added the wiki link to each word}
+
+ BACKEND
+ 1. Fix the "vic" bug. How to reproduce it?[may 22nd 2017]{fixed the bug inside the get_completions function}
+ 2. Use logger. Don't do prints. "import logger".
+ 3. Write unit tests[may 22nd 2017]{wrote basic unit test cases]
+
+ DEPLOYMENT
+ 1. Install on free machine on ec2 or ec2 beanstalk.
+ 2. Redirect route 53 to the app instance.
+
+ JOB APP
+ 1. Update resume
+
+-------------
+scratch pad
+
+
  1. display the proper results to the frontpage.html
- 2. Raise the error at trie.py for "If the search index is not found"
+ 2. Raise the error at trie.py for "If the search index is not found" -- fixed
  3. Fix the file import (name of the file: 'trie.py') issue in trieflaskapp.py
- 4. Write the unit test cases
+ 4. Write the unit test cases -- improvize the test cases, wrote basic test cases
  5. Connect the dictionary to trie app and display the word meanings
  6. Host this trie auto-completion in aws
     * get the domain name
