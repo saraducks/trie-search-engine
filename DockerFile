@@ -1,0 +1,15 @@
+FROM python:3.5
+
+MAINTAINER saranya vijay
+
+RUN yum update -y 
+
+RUN apt-get install -y git  python-pip python-dev build-essential
+
+COPY git clone https://github.com/saraducks/trie-search-engine.git
+
+RUN pip install -r requirements.txt
+
+EXPOSE 8500
+
+CMD["python", "/dictionary_webapp/trieflaskapp.py", "-p:8500"]
